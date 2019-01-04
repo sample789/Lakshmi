@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="jquery.js"></script>
+<title>HTML5</title>
+<style>
+h3{
+color:#2e75b5;
+font-weight:600;
+}
+p{
+color:#2e75b5;
+font-weight:100;
+}
+</style>
+<script>
+$(document).ready(function(){
+    
+  var $accountDelete = $('#delete-account'),
+    $accountDeleteDialog = $('#confirm-delete');
+
+  $accountDelete.on('click', function() {
+    $accountDeleteDialog[0].show();
+  });
+
+  $('#cancel').on('click', function() {
+    $accountDeleteDialog[0].close();
+  });
+
+});
+</script>
+</head>
+        <!--Reference URL for Html5 concepts
+		https://www.tutorialrepublic.com/html-reference/html5-details-tag.php   -->
+
+		
+        <!--Article-->
+
+<body class="text-center">
+<h3 class = "text-center">Article :</h3>
+<article>
+<h3>Redcross</h3>
+<p>The International Red Cross and Red Crescent Movement is an international humanitarian movement with approximately 17 million volunteers, members and staff worldwide[2] which was founded to protect human life and health, to ensure respect for all human beings, and to prevent and alleviate human suffering.</p>
+</article>
+<br><hr>
+        <!--EndArticle-->
+		
+        <!--Position information will be inserted here-->
+
+<script type="text/javascript">
+    function showPosition(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(function(position){
+                var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+                document.getElementById("result").innerHTML = positionInfo;
+            });
+        } else{
+            alert("Sorry, your browser does not support HTML5 geolocation.");
+        }
+    }
+</script>
+ <div id="result">
+        <!--Position information will be inserted here-->
+    </div>
+    <button type="button" onclick="showPosition();">CurrentLocation</button>
+<br><hr>
+        <!--webstorage Tempravory-->
+
+<script type="text/javascript">
+// Check if the localStorage object exists
+if(localStorage){
+	$(document).ready(function(){
+		$(".save").click(function(){
+			// Get input name
+			var firstName = $("#firstName").val();
+			
+			// Store data
+    		localStorage.setItem("first_name", firstName);
+			alert("Your first name is saved.");
+		});
+		$(".access").click(function(){
+			// Retrieve data
+    		alert("Hi, " + localStorage.getItem("first_name"));
+		});
+	});
+} else{
+    alert("Sorry, your browser do not support local storage.");
+}
+</script>
+<form>
+    	<label>First Name: <input type="text" id="firstName"></label>
+        <button type="button" class="save">Save Name</button>
+        <button type="button" class="access">Get Name</button>
+    </form>
+<!--End webstorage Tempravory-->
+<!--legend -->
+ <form action="" method="post">
+        <fieldset>
+            <legend>Gender</legend>
+            <input type="radio" name="gender" value="male" id="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="female">Female</label>
+        </fieldset>
+    </form>
+<!--End legend-->
+<br><hr>
+<!--details Tag -->
+<details>
+    <summary>What is protocol?</summary>
+    <p>Protocol is a set of methods to implemented whoever adopt the protocol must should be implemented.</p>
+</details>
+<!--End details Tag -->
+<br><hr>
+
+<!--bidirectional isolation Tag -->
+<h3>bidirectional isolation</h3>
+<p dir="ltr">This word <bdi>Riyadh is the one of the city in Dubai</bdi> is automatically displayed right-to-left.</p>
+<!--bidirectional Tag -->
+<br><hr>
+
+<!--bidirectional override Tag -->
+<h3>bidirectional override</h3>
+<p>The sequence "Lakshmi Narasimha" was reversed as: <bdo dir="rtl">Lakshmi Narasimha</bdo></p>
+<!--End bidirectional override Tag -->
+<br><hr>
+<!--caption -->
+<style type="text/css">
+    table, td, th {
+        border: 1px solid gray;
+		margin-left:500px;
+    }
+</style>
+  <table>
+        <caption>family Details</caption>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1779</td>
+                <td>LakshmiNarasimha</td>
+                <td>testchat@mail.com</td>
+            </tr>
+            <tr>
+                <td>2016</td>
+                <td>Pandu</td>
+                <td>testchat@mail.com</td>
+            </tr>
+            <tr>
+                <td>2018</td>
+                <td>Babu</td>
+                <td>testchat@mail.com</td>
+            </tr>
+			<tr>
+        <td>2019</td>
+        <td>Raj</td>
+        <td>testchat@mail.com</td>
+    </tr>
+        </tbody>
+    </table>
+<!--End caption -->
+<br><hr>
+
+
+<!--Datalist -->
+<p>Enter your favorite scientist name:</p>
+	<form action="/examples/html5/demo_datalist.php" method="post">
+		<input type="text" list="scinetist" name="favorite_scinetist">
+		<datalist id="scinetist">
+			<option value="stephen Hocking">
+			<option value="Kalam">    
+			<option value="grahambhel">
+			<option value="Markoni">
+			<option value="LakshmiNarasimha">
+		</datalist>
+		<input type="submit" value="Submit">
+	</form>
+<!--End Datalist -->
+<br><hr>
+
+<!--short for delete -->
+<ul>
+        <li>Watching TV</li>
+        <li>Do Update ioS</li>
+        <li><del>Relaxation time</del></li>
+        <li>Visiting nice places</li>
+    </ul>
+	<!--End short for delete -->
+<br><hr>
+<!--embed-->
+<h3>audio</h3>
+<embed src="" width="400px" height="200px">
+<audio src="Sleep Away.mp3" controls>
+</audio>
+<!--End embed-->
+<br><hr>
+<!--summary-->
+<details>
+<h3>summary Detail</h3>
+<summary>Struct</summary>
+<p>A struct is special C Type of Data that encapsulated into a single Unit.</p>
+</details>
+<!--End summary-->
+<br><hr>
+<!--select-->
+<select>
+    <option value="ferrari">Ferrari</option>
+    <option value="mercedes">Mercedes</option>
+   <option value="porsche">Porsche</option>
+</select>
+<!--End select-->
+
+<!--Dialog-->
+<div class="site-content cf">
+  <div class="boxed-group dangerzone">
+	<br>
+    <div class="boxed-group-inner">
+      <section>
+        <button href="#" class="btn btn-danger boxed-action" id="delete-account">Dialog-box</button>
+        <dialog id="confirm-delete" class="site-dialog">
+          <header class="dialog-header">
+            <h3>Are you sure you want to delete?</h3>
+          </header>
+          <div class="dialog-content">
+          </div>
+          <div class="btn-group cf">
+            <button id="delete">YES</button>
+            <button id="cancel">NO</button>
+          </div>
+        </dialog>
+
+      </section>
+    </div>
+  </div>
+</div>
+<!--End Dialog-->
+<br><hr>
+
+<!--Datepicker---->
+<title>HTML5 Date Pickers Demonstrated</title>
+</head>
+<form>
+   <table>
+
+   <tr>
+   <th>Input Type</th>
+   <th>Input Field</th>
+   </tr>
+
+   <tr>
+   <td>date</td>
+   <td><input type="date"></td>
+   </tr>
+
+    <tr>
+   <td>datetime-local</td>
+   <td><input type="datetime-local"></td>
+   </tr>
+
+   <tr>
+   <td>month</td>
+   <td><input type="month"></td>
+   </tr>
+
+   <tr>
+   <td>week</td>
+   <td><input type="week"></td>
+   </tr>
+
+   <tr>
+   <td>time</td>
+   <td><input type="time"></td>
+   </tr>
+   </table>
+</form>
+<!--End Datepicker---->
+<br><hr>
+<!--colgroup---->
+
+<table>
+    <colgroup>
+        <col style="background-color:#adff2f;">
+        <col span="2" style="background-color:#f0e68c;">
+    </colgroup>
+    <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Lakshmi</td>
+        <td>testchat@mail.com</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Pandu</td>
+        <td>testchat@mail.com</td>
+    </tr>
+    
+	<tr>
+        <td>3</td>
+        <td>Raj</td>
+        <td>testchat@mail.com</td>
+    </tr>
+	<tr>
+        <td>4</td>
+        <td>RajBabu</td>
+        <td>testchat@mail.com</td>
+    </tr>
+</table>
+<!--End colgroup---->
+<br><hr>
+<!--base---->
+ <h3>base tag</h3>
+    <base href="https://www.tutorialrepublic.com/">
+	<p>Learn <a href="css-tutorial/">CSS</a></p>
+	<br><hr>
+	<!--End base---->
+	
+	<!--Meter or -->
+<h3 class = "text-center">Meter TagValue:</h3>
+<dl>
+<dd><meter min="0" max="100" value="75">75%</meter></dd>
+<dd><meter min="100" max="200" value="10">80%</meter></dd>
+<dd><meter min="0" max="100" value="75">55%</meter></dd>
+<dd><meter min="0" max="800" value="200">60%</meter></dd>
+</dl>
+<br><hr>
+<!--End Meter or -->
+</body>
+</html>
